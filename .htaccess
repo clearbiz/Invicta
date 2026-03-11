@@ -1,0 +1,18 @@
+# Enable rewriting
+RewriteEngine On
+
+# Force /index.html to /pop/index
+RewriteCond %{THE_REQUEST} \s/+(index\.html)\s [NC]
+RewriteRule ^index\.html$ /pop/index [R=301,L]
+
+# Map /pop/index to root index.html
+RewriteRule ^pop/index/?$ /index.html [L]
+
+# Map /pop/<slug> to /<slug>.html (only if the file exists)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^pop/([a-z0-9\-]+)/?$ /$1.html [L]
+
+# Serve assets from root when requested under /pop/
+RewriteCond %{REQUEST_URI} ^/pop/
+RewriteRule ^pop/(assets|main\.js|styles\.css)(.*)$ /$1$2 [L]

@@ -1,0 +1,379 @@
+/* css/styles.css
+   Styling and small animations for the static seed manual site.
+   Edit colors, spacing and typography here.
+*/
+
+/* Page layout */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #fafafa;
+  color: #212121;
+}
+
+/* Main content area grows to fill page, footer stays at bottom */
+main {
+  flex: 1 0 auto;
+  padding-top: 24px;
+  padding-bottom: 48px;
+}
+
+/* Fixed card dimensions for uniform appearance */
+.card {
+  height: 400px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Crop card image area — keep consistent height */
+.crop-image {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  flex-shrink: 0;
+}
+
+/* If you use SVG placeholders inside .card-image, ensure they scale */
+.crop-image svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Fixed card content area */
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  height: 180px;
+  overflow: hidden;
+}
+
+/* Card title styling */
+.card-title {
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  margin-bottom: 8px !important;
+  line-height: 1.2 !important;
+}
+
+/* Card description text */
+.card-content p {
+  flex: 1;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* Chip positioning */
+.card-content .chip {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* Fixed card action area */
+.card-action {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  flex-shrink: 0;
+}
+
+/* Language cards behave like buttons */
+/* Legacy language-card styles removed (replaced by tabs) */
+
+/* Language tabs */
+#language-tabs {
+  background: transparent;
+  box-shadow: none;
+}
+
+
+/* make anchors fill the tab and center text */
+#language-tabs .tab a {
+  color: #444;
+  font-weight: 600;
+  border-radius: 6px 6px 0 0;
+  padding: 10px 12px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+
+#language-tabs .tab a:hover {
+  transform: translateY(-3px);
+}
+
+/* Distribute tabs evenly across the available width (6 tabs -> 16.6667%) */
+#language-tabs .tabs .tab {
+  width: calc(100% / 6) !important;
+  float: left !important;
+  display: block !important;
+}
+
+/* Active state styling - default active look */
+#language-tabs .tab a.active {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transform: translateY(0);
+  color: #fff !important; /* ensure contrast when active */
+}
+
+/* Per-language active background using data-lang attribute on the <a> */
+#language-tabs .tab a.active[data-lang="en"] { background-color: #f57c00; }
+#language-tabs .tab a.active[data-lang="hi"] { background-color: #43a047; }
+#language-tabs .tab a.active[data-lang="te"] { background-color: #0288d1; }
+#language-tabs .tab a.active[data-lang="ta"] { background-color: #d32f2f; }
+#language-tabs .tab a.active[data-lang="kn"] { background-color: #6a1b9a; }
+#language-tabs .tab a.active[data-lang="mr"] { background-color: #00796b; }
+
+/* Responsive: on very small screens allow horizontal scroll instead of forcing tiny tabs */
+@media (max-width: 600px) {
+  #language-tabs .tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  #language-tabs .tabs .tab {
+    width: auto !important;
+    display: inline-block !important;
+    float: none !important;
+  }
+  #language-tabs .tab a {
+    display: inline-block;
+    padding: 10px 14px;
+  }
+}
+
+/* Per-language colors (background on active) */
+.lang-en { background-color: #244F0B; color: #fff !important; } /* green (darken-2) */
+.lang-hi { background-color: #43a047; color: #fff !important; } /* green */
+.lang-te { background-color: #0288d1; color: #fff !important; } /* blue */
+.lang-ta { background-color: #d32f2f; color: #fff !important; } /* red */
+.lang-kn { background-color: #6a1b9a; color: #fff !important; } /* purple */
+.lang-mr { background-color: #00796b; color: #fff !important; } /* teal */
+
+/* Note: active state is styled above (consolidated) */
+
+/* We will toggle per-language classes on the active link via JS to apply background color */
+
+/* Tabs responsiveness: allow horizontal scroll on very small screens */
+#language-tabs .tabs {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+#language-tabs .tab {
+  display: inline-block !important;
+  float: none !important;
+}
+
+/* Manual section animation: starts hidden, .show toggles fade-in */
+#manual-section {
+  transition: opacity 400ms ease, transform 400ms ease;
+  transform: translateY(8px);
+  opacity: 0;
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 6px;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+/* visible state */
+#manual-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* breadcrumb small text style */
+#breadcrumb {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+/* Manual content readable line spacing */
+#manual-content h6 {
+  margin-top: 16px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+#manual-content p {
+  margin: 0 0 12px 0;
+  line-height: 1.6;
+  font-size: 0.85rem;
+}
+
+/* Reduce font sizes for ul, li, and table tr elements */
+ul, li {
+  font-size: 0.85rem; /* Adjusted font size */
+}
+
+table tr {
+  font-size: 0.85rem; /* Adjusted font size */
+}
+
+/* Responsive tweaks - mobile-first */
+/* For medium screens (tablet) we rely on Materialize grid */
+@media (min-width: 600px) {
+  main {
+    padding-top: 28px;
+  }
+}
+
+/* Desktop: larger paddings */
+@media (min-width: 992px) {
+  main {
+    padding-top: 36px;
+  }
+}
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 600px) {
+  .hero-section h1 {
+    font-size: 2rem; /* Decreased font size for mobile view */
+  }
+  .hero-section h5 {
+    font-size: 1rem; /* Decreased font size for mobile view */
+  }
+
+  .section .card-panel {
+    padding: 0.5rem !important; /* Reduce padding */
+    background-size: cover !important;
+  }
+
+  .section .card-panel h4 {
+    font-size: 1.5rem !important; /* Smaller font size for header */
+    margin-bottom: 0.3rem !important; /* Adjust margin */
+  }
+
+  .section .card-panel p {
+    font-size: 0.75rem !important; /* Smaller font size for description */
+  }
+}
+
+/* Mobile-specific styles for language grid */
+@media (max-width: 600px) {
+  .lang-tab {
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 10px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+
+  .lang-tab[data-lang="en"] { background-color: #244F0B; } /* green */
+  .lang-tab[data-lang="hi"] { background-color: #43a047; } /* green */
+  .lang-tab[data-lang="te"] { background-color: #0288d1; } /* blue */
+  .lang-tab[data-lang="ta"] { background-color: #d32f2f; } /* red */
+  .lang-tab[data-lang="kn"] { background-color: #6a1b9a; } /* purple */
+  .lang-tab[data-lang="mr"] { background-color: #00796b; } /* teal */
+
+  .lang-tab:hover {
+    filter: brightness(1.1);
+  }
+}
+
+/* Footer style */
+.page-footer {
+  margin-top: 28px;
+}
+
+/* Utility */
+.text-muted {
+  color: #616161;
+}
+.small {
+  font-size: 0.9rem;
+}
+
+/* Styling for hero-section h1 */
+.hero-section h1 {
+  font-size: 48px; /* Default font size for normal view */
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 600px) {
+  .hero-section h1 {
+    font-size: 30px; /* Font size for mobile view */
+  }
+  .container h3 {
+  font-size: 1.92rem; 
+}
+}
+
+/* Ensure strong tags render bold text */
+strong {
+  font-weight: bold;
+}
+
+/* --- End of styles.css --- */
+
+/* Navbar sizing overrides to fit larger logo */
+/* Increase default nav height (Materialize default is 64px) */
+nav {
+  height: 96px;
+  line-height: 96px;
+}
+nav .nav-wrapper {
+  height: 96px;
+}
+/* Ensure brand area and links match the new height */
+nav .brand-logo {
+  line-height: 96px;
+}
+nav ul a {
+  height: 96px;
+  line-height: 96px;
+}
+nav .sidenav-trigger {
+  height: 96px;
+  line-height: 96px;
+}
+/* Logo image can be increased; keep it inside the bar */
+nav .brand-logo img {
+  display: inline-block;
+  max-height: 140px; /* a little less than 96px to add breathing room */
+  height: auto; /* allow inline style height to work if present */
+  vertical-align: middle;
+}
+
+/* Slightly reduce height on small screens for better ergonomics */
+@media (max-width: 600px) {
+  nav {
+    height: 72px;
+    line-height: 72px;
+  }
+  nav .nav-wrapper,
+  nav .brand-logo,
+  nav ul a,
+  nav .sidenav-trigger {
+    height: 72px;
+    line-height: 72px;
+  }
+  nav .brand-logo img {
+    max-height: 64px;
+  }
+}

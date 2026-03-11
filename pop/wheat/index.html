@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wheat Cultivation Manual - Image Crop Sciences</title>
+
+  <!-- Materialize CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="green lighten-5">
+		<div class="nav-wrapper container">
+			<a href="/pop/index.html" class="brand-logo">
+				<img src="/assets/logo.png" alt="Image Crop Sciences Logo" style="height: 80px; vertical-align: middle; margin-left: 8px;">
+			</a>
+			<a href="/#crops" class="left hide-on-med-and-up" style="line-height:80px; color:#244F0B; padding-top: 5px; padding-left: -10px;">
+				<i class="material-icons left">arrow_back</i>
+			</a>
+		</div>
+	</nav>
+
+  <!-- Page Header - Full Width -->
+  <div class="center-align"
+    style="padding: 3rem 1rem; background: linear-gradient(rgba(241,248,233,0.85), rgba(241,248,233,0.5)), url('/assets/wheatCrop.webp'); background-position: center; background-size: cover; background-repeat: no-repeat;">
+    <h4 style="margin-top: 0; margin-bottom: 0.5rem; color: #244F0B;">Wheat Cultivation Manual</h4>
+    <p style="font-size: 1rem; margin-bottom: 0; color: #244F0B;">
+      Comprehensive guide for wheat cultivation with high-yield varieties, sowing techniques, irrigation
+      management, and disease control methods.
+    </p>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Language Selection -->
+    <div class="section" style="padding:0;">
+      <div class="row center-align">
+        <div class="col s12">
+          <h5 style="color: #244F0B;">
+            Select Language / भाषा चुनें
+          </h5>
+          <p class="grey-text">Choose your preferred language to read the wheat cultivation manual</p>
+        </div>
+      </div>
+
+      <!-- Language tabs for desktop -->
+      <div class="row hide-on-small-only">
+        <div class="col s12">
+          <ul id="language-tabs" class="tabs">
+            <li class="tab col"><a href="#" class="lang-tab" data-lang="en">English</a></li>
+            <li class="tab col"><a href="#" class="lang-tab" data-lang="hi">हिंदी</a></li>
+            <li class="tab col"><a href="#" class="lang-tab" data-lang="te">తెలుగు</a></li>
+            <li class="tab col"><a href="#" class="lang-tab" data-lang="ta">தமிழ்</a></li>
+            <li class="tab col"><a href="#" class="lang-tab" data-lang="kn">ಕನ್ನಡ</a></li>
+            <li class="tab col"><a href="#" class="lang-tab" data-lang="mr">मराठी</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Language grid for mobile -->
+      <div class="row hide-on-med-and-up">
+        <div class="col s6">
+          <button class="btn green darken-2 lang-tab" data-lang="en">English</button>
+        </div>
+        <div class="col s6">
+          <button class="btn green darken-2 lang-tab" data-lang="hi">हिंदी</button>
+        </div>
+        <div class="col s6">
+          <button class="btn green darken-2 lang-tab" data-lang="te">తెలుగు</button>
+        </div>
+        <div class="col s6">
+          <button class="btn green darken-2 lang-tab" data-lang="ta">தமிழ்</button>
+        </div>
+        <div class="col s6">
+          <button class="btn green darken-2 lang-tab" data-lang="kn">ಕನ್ನಡ</button>
+        </div>
+        <div class="col s6">
+          <button class="btn green darken-2 lang-tab" data-lang="mr">मराठी</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Manual display area (hidden until language selected) -->
+    <section id="manual-section" class="card-panel" style="display:none;">
+      <!-- Breadcrumb (Home → Wheat → English) -->
+      <div id="breadcrumb" class="small grey-text text-darken-1"></div>
+
+      <div class="row">
+        <div class="col s12">
+          <h5 id="manual-title">Manual</h5>
+          <div id="manual-content" class="flow-text">
+            <!-- Manual text will be injected here by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Back to top button -->
+      <div class="row center-align">
+        <div class="col s12">
+          <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+            class="btn waves-effect waves-light" style="background-color: #244F0B;">
+            <i class="material-icons left">keyboard_arrow_up</i>
+            Back to Top
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="page-footer darken-2" style="background-color:#244F0B;">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m6">
+          <h5 class="white-text">Image Crop Sciences</h5>
+          <p class="grey-text text-lighten-4">
+            Your trusted partner in sustainable agriculture and quality seed cultivation.
+          </p>
+        </div>
+        <div class="col s12 m6">
+          <h5 class="white-text">Contact Info</h5>
+          <ul>
+            <li><i class="material-icons left tiny">email</i>imagecropsciences2@gmail.com</li>
+            <li><i class="material-icons left tiny">location_on</i>Image Crop Sciences Pvt.Ltd.,<br>
+              Plot no-33,Agro Proc Park,Bandamailaram Village,Mulug Mandal<br>
+              Siddipet District, Telangana -502336.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        <div class="row" style="margin:0;">
+          <div class="col s12 m6">
+            <p class="white-text" style="margin:0;">© 2025 Image Crop Science. All rights reserved.</p>
+          </div>
+          <div class="col s12 m6 right-align">
+            <p class="white-text" style="margin:0;">Designed by ClearBiz Software Solutions Pvt Ltd</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="/main.js"></script>
+</body>
+
+</html>
